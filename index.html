@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="icon" type="image/png" href="https://amulex.ru/images/favicon/favicon.ico" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700&display=swap&subset=cyrillic"
+        rel="stylesheet">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.maskedinput.js"></script>
+    <title>Налоговый калькулятор</title>
+</head>
+
+<body>
+
+    <div class="blur">
+
+
+        <div class="back">
+            <div class="container">
+                <div class="main">
+                    <div class="header">
+                        <div>
+                            <h1>Налоговый калькулятор</h1> <br>
+                            <span class="white">Рассчитайте налоговый вычет за 4 минуты. Только для физических
+                                лиц</span>
+                        </div>
+                        <div class="help__mobile">
+                            <div class="help__mobile_img">
+                                <img src="img/help__mobile.svg" alt="">
+                            </div>
+
+                            <div>Помощь юриста</div>
+
+                        </div>
+                        <div class="help">
+                            <a>Нужна помощь юриста</a>
+                        </div>
+                    </div>
+                    <div id="calculator">
+                        <div class="calc__container">
+                            <div class="calcMenu">
+                                <div class="menuItem" data-target="one" id="itemOne">
+                                    <span class="step first" id="iconOne">1</span> Доходы
+                                </div>
+                                <div class="menuItem " data-target="two" id="itemTwo">
+                                    <span class="step" id="iconTwo">2</span> Расходы
+                                </div>
+                                <!-- <div class="menuItem" data-target="three" id="itemThree">
+                                <span class="step" id="iconThree">3</span> Результат
+                            </div> -->
+                                <div class="menuItem" data-target="four" id="itemFour">
+                                    <span class="step" id="iconFour">
+                                        <img src="img/icon_four.svg" alt="" style="width: 13px;
+                                    height: 21px;
+                                    margin: -5px -1px;">
+                                    </span> Получение вычета
+                                </div>
+                            </div>
+                            <!-- переключатель для мобильной версии -->
+
+
+                            <div class="step__selector">
+                                <select name="box" id="selector">
+                                    <option value="first">
+                                        Доходы
+
+                                    </option>
+                                    <option value="second">
+                                        Расходы
+
+                                    </option>
+                                    <option value="done">
+                                        Получение вычета
+
+                                    </option>
+                                </select>
+                            </div>
+
+
+                            <!-- 1 экран калькулятора -->
+                            <div id="calcOne" class="none">
+                                <div class="for_pensioner">
+
+                                    <label>
+                                        <input class="checkbox" type="checkbox" name="checkbox-test" id="agree">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="label">Отметьте, если Вы получаете пенсию</a></span>
+                                    </label>
+                                    <div class="label__quest pensioner">
+                                        <img src="./img/question.svg" class="quest__img" data-target="more11">
+                                    </div>
+                                </div>
+                                <div id="more11" class="categories__more" style="padding-top: 20px;">
+                                    Как известно с пенсии не удерживаются налоги, поэтому важно знать в каком году
+                                    пенсионер
+                                    перестал получать доходы, т.к. возврат налога пенсионерам при покупке недвижимости
+                                    осуществляется за три прошедших года, которые были до появления права на налоговый
+                                    вычет, но это правило действует только на налоговый вычет по недвижимости, по всем
+                                    остальным вычетам нужно заявлять в том году в котором были расходы и соответствующий
+                                    доход в пределах трех лет с момента затрат
+                                </div>
+                                <div class="pens__inside item__inside" data-categories="pens__check">
+
+                                    <!--                                если вы пенсионер-->
+                                    <div class="pens_about_work">
+                                        <div class="label__wrapper" style="margin-top: 28px;">
+                                            <div>
+                                                <label>
+                                                    <input class="checkbox" type="checkbox" name="checkbox-test">
+                                                    <span class="checkbox-custom"></span>
+                                                    <span class="label label_mob" style="padding-bottom: 30px;">Вы не
+                                                        работаете?</a></span>
+
+                                                </label>
+
+                                            </div>
+                                            <div class="label__quest notworking_pensioner">
+                                                <img src="./img/question.svg" class="quest__img" data-target="morepens">
+                                            </div>
+                                        </div>
+
+                                        <div class="categories__more" id="morepens">
+                                            Неработающие люди на пенсии вправе рассчитывать на возврат НДФЛ при покупке
+                                            недвижимости (новое строительство либо приобретение на территории Российской
+                                            Федерации жилых домов, квартир, комнат или доли (долей) в них, приобретение
+                                            земельных участков или доли (долей) в них, предоставленных для
+                                            индивидуального
+                                            жилищного строительства, и земельных участков или доли (долей) в них, на
+                                            которых
+                                            расположены приобретаемые жилые дома или доля (доли) в них) за три прошедших
+                                            периода, которые были до появления права вернуть средства. Таким образом,
+                                            независимо от даты покупки квартиры, пенсионер может вернуть уплаченный НДФЛ
+                                            за
+                                            4 последних календарных года. Но чтобы перенести на предшествующие сроки
+                                            налоговый вычет на недвижимость, пенсионеру нужно в тех периодах иметь
+                                            соответствующий доход, в противном случае льгота предоставлена не будет.
+                                            (пункт
+                                            10 ст. 2020 НК РФ.) При этом, в соответствии с пунктом 7 статьи 78 НК РФ
+                                            заявление о зачете или о возврате суммы излишне уплаченного налога может
+                                            быть
+                                            подано в течение трех лет со дня уплаты указанной суммы.
+                                        </div>
+                                        <div class="pens__inside item__inside item__inside_pens hidden"
+                                            data-categories="pensi__check">
+                                            <div class="pens__years-block">
+                                                <span class="years__title years__title_pens">
+                                                    С какого года прекратилось получение дохода
+                                                </span>
+                                                <div class="years__list pension-years">
+                                                    <!-- <div class="year__item" data-value="2014">
+                                                    <input type="radio" class="input__radio hidden">
+                                                    2014
+                                                </div> -->
+                                                    <div class="year__item" data-value="2015">
+                                                        <input type="radio" class="input__radio hidden">
+                                                        2015
+                                                    </div>
+                                                    <div class="year__item" data-value="2016">
+                                                        <input type="radio" class="input__radio hidden">
+                                                        2016
+                                                    </div>
+                                                    <div class="year__item" data-value="2017">
+                                                        <input type="radio" class="input__radio hidden">
+                                                        2017
+                                                    </div>
+                                                    <div class="year__item" data-value="2018">
+                                                        <input type="radio" class="input__radio hidden">
+                                                        2018
+                                                    </div>
+                                                    <div class="year__item" data-value="2019">
+                                                        <input type="radio" class="input__radio hidden">
+                                                        2019*
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+
+                                <div class="chooseYear">
+                                    <div class="years">
+
+                                        <div class="yearLabel">
+                                            Выберите год, за который хотите рассчитать налоговый вычет
+                                        </div>
+                                        <div class="yearMenu">
+                                            <div class="yearMenu__item border_one" id="year2016">
+                                                2016
+                                            </div>
+                                            <div class="yearMenu__item" id="year2017">
+                                                2017
+                                            </div>
+                                            <div class="yearMenu__item" id="year2018">
+                                                2018
+                                            </div>
+                                            <div class="yearMenu__item border_two" id="year2019">
+                                                2019
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="label_info">
+                                        В текущем году вы можете получить налоговый вычет <br> только с работодателя
+                                    </div>
+                                </div>
+                                <div class="ndfl__block calc-padding">
+                                    <div class="income">
+                                        <div class="income_header">
+                                            <div>
+                                                <h2>Доход облагаемый НДФЛ</h2>
+                                            </div>
+                                            <div class="label_info">
+                                                Годовой доход до вычета налогов указан в справке 2- <br> НДФЛ в 5
+                                                разделе в
+                                                поле
+                                                «Общая
+                                                сумма дохода
+                                            </div>
+                                        </div>
+                                        <div class="income_input">
+                                            <div>
+                                                <div class="rub_input">
+                                                    <label for="income_sum">До вычета налогов</label><br>
+                                                    <input id="income_before" class="income_sum" type="text">
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="rub_input">
+                                                    <label for="income_sum">После вычета налогов</label><br>
+                                                    <input id="income_after" class="income_sum" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="income_text">
+                                            Удержано НДФЛ <span class="income_line">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                                                _ _
+                                                _
+
+                                            </span>
+
+                                            <span type="number" tabindex="-1"
+                                                class="item__rowValue retained rowValue_empty"></span>
+
+                                        </div>
+                                        <div class="income_text_mobile">
+                                            Удержано НДФЛ <span class="income_line">_ _ _ _ _ _ _
+                                            </span>
+
+                                            <span type="number" tabindex="-1"
+                                                class="item__rowValue retained rowValue_empty"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- конец 1 экрана -->
+
+
+                            <!--                    2 экран калькулятора-->
+
+                            <div id="calcTwo" class="none">
+
+                                <div class="calcTwo__main">
+                                    <div class="categories__block">
+                                        <h4 class="categories__title">
+                                            Отметьте категории расходов <span class="this_year"></span>:
+                                        </h4>
+                                        <div class="build category">
+                                            <div class="label__wrapper">
+                                                <input id="build__check" type="checkbox"
+                                                    class="calc__check cat__label cat__check checkbox_hidden">
+                                                <label for="build__check" class="calc__label">
+                                                    Покупка недвижимости
+                                                </label>
+
+                                                <div class="label__quest">
+                                                    <img src="./img/question.svg" class="quest__img"
+                                                        data-target="more1">
+                                                </div>
+                                            </div>
+                                            <div id="more1" class="categories__more hidden">
+                                                Жилые дома, квартиры, комнаты или доля /доли в них, приобретение
+                                                земельные
+                                                участки
+                                                или доля/доли в них, предоставленные для индивидуального жилищного
+                                                строительства,
+                                                земельные участки или доля/доли в них, на которых расположены
+                                                приобретаемые
+                                                жилые
+                                                дома
+                                                или доля/доли в них.
+                                            </div>
+                                            <div class="build__inside item__inside hidden"
+                                                data-categories="build__check">
+                                                <div class="item__row">
+                                                    <div class="item__rowTitle">
+                                                        Дата приобретения недвижимости
+                                                    </div>
+                                                    <div class="item__valueWrap">
+                                                        <input type="text" class="item__rowValue" id="date_build">
+                                                    </div>
+                                                </div>
+                                                <div class="item__row">
+                                                    <div class="item__rowTitle">
+                                                        Потраченная сумма
+                                                    </div>
+                                                    <div class="item__valueWrap ndfl__valueWrap">
+                                                        <input type="number" id="property_summ" class="item__rowValue">
+                                                    </div>
+                                                </div>
+                                                <div class="label__wrapper">
+                                                    <input id="credit" type="checkbox"
+                                                        class="calc__check checkbox_hidden">
+                                                    <label for="credit" class="calc__label children__label">
+                                                        Отметьте, если покупка осуществлялась в ипотеку
+                                                    </label>
+                                                </div>
+                                                <div class="credit__persent children__coll">
+                                                    <div class="item__row">
+                                                        <div class="item__rowTitle">
+                                                            Сумма уплаченных процентов
+                                                        </div>
+                                                        <div class="item__valueWrap ndfl__valueWrap">
+                                                            <input type="number" id="mortgage_summ"
+                                                                class="item__rowValue">
+                                                        </div>
+                                                    </div>
+                                                    <div class="label__wrapper">
+                                                        <div for="build__check" class="calc__info">
+                                                            Если сумма налогового вычета превышает лимит, то, в данном
+                                                            типе
+                                                            налогового вычета оставшаяся сумма переносится на следующий
+                                                            год
+                                                        </div>
+                                                        <div class="label__wrapper">
+
+                                                            <div class="label__quest">
+                                                                <img src="./img/question.svg" class="quest__img"
+                                                                    data-target="more2">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="more2" class="calk__infoMore categories__more hidden">
+                                                    Весь неиспользованный остаток имущественного вычета, переносится на
+                                                    следующий год, поэтому возвращать его можно до тех пор, пока не
+                                                    будет
+                                                    исчерпана вся сумма целиком, подробнее можно прочитать в пп. 2 п.
+                                                    1 ст. 220 НК РФ. Пенсионер сможет использовать остаток
+                                                    имущественного
+                                                    вычета, если у него в будущем появятся доходы, облагаемые по ставке
+                                                    13%.
+                                                    Если Вы воспользовались возможностью получения имущественного
+                                                    налогового
+                                                    вычета до 1 января 2014 года, то не сможете получить его еще раз.
+                                                    Если
+                                                    же
+                                                    это произошло после указанной даты, то у Вас остается возможность
+                                                    получить
+                                                    имущественный налоговый вычет в отношении нескольких объектов
+                                                    недвижимости
+                                                    (поименнованных в статье 220 НК РФ). Однако общая сумма, с которой
+                                                    Вы
+                                                    можете получить 13% (в совокупности с прошлой покупкой), не может
+                                                    превышать
+                                                    2 млн рублей. Другими словами, общий размер Вашего налогового вычета
+                                                    по
+                                                    двум и более объектом недвижимости не превысит 260 тысяч рублей.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="study category">
+                                            <div class="label__wrapper">
+                                                <input id="study__check" type="checkbox"
+                                                    class="calc__check cat__label cat__check checkbox_hidden">
+                                                <label for="study__check" class="calc__label">
+                                                    Обучение (очная форма)
+                                                </label>
+                                            </div>
+                                            <div class="study__inside item__inside hidden"
+                                                data-categories="study__check">
+                                                <div class="label__wrapper study__label myself">
+                                                    <input type="checkbox" id="myself"
+                                                        class="calc__check checkbox_hidden">
+                                                    <label for="myself" class="calc__label children__label">
+                                                        На себя, брата или сестру
+                                                        <span class="calc__sublabel">
+                                                            до 120 000 Р за год на всех
+                                                        </span>
+                                                    </label>
+                                                    <div class="label__quest children__quest">
+                                                        <img src="./img/question.svg" class="quest__img"
+                                                            data-target="more4">
+                                                    </div>
+                                                </div>
+                                                <div class="children__coll hidden">
+                                                    <div class="item__row">
+                                                        <div class="item__rowTitle">
+                                                            Потраченная сумма
+                                                        </div>
+                                                        <div class="item__valueWrap ndfl__valueWrap mylearn">
+                                                            <input type="number" class="item__rowValue">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="more4" class="calk__infoMore categories__more hidden">
+                                                    Максимальная сумма налогового вычета за обучение не может превышать
+                                                    13%
+                                                    от стоимости
+                                                    образовательных услуг, но и не более 15 600 рублей на руки в течение
+                                                    одного календарного
+                                                    года. Вами может быть заявлена максимальная сумма возврата вычета в
+                                                    размере: 50 000 рублей
+                                                    (к возврату 6 500 рублей) – по расходам за обучение каждого ребенка
+                                                    (родного, усыновленного
+                                                    или опекаемого); 120 000 рублей (к возврату 15 600 рублей) – если
+                                                    траты
+                                                    связаны с
+                                                    собственным образованием, либо обучением братьев и сестер. На свое
+                                                    обучение вычет
+                                                    предоставляется учащемуся по любой форме обучения (очной,
+                                                    очно-заочной,
+                                                    заочной)
+                                                    независимо от возраста .Получить вычет в связи с оплатой обучения
+                                                    братьев и сестер
+                                                    (в том числе неполнородных) можно, если только на момент оплаты они
+                                                    не
+                                                    достигли возраста 24 лет и их обучение проходит по очной форме.
+                                                </div>
+                                                <div class="label__wrapper study__label children">
+                                                    <input type="checkbox" id="children"
+                                                        class="calc__check checkbox_hidden">
+                                                    <label for="children" class="calc__label children__label">
+                                                        На моих детей
+                                                        <span class="calc__sublabel">
+                                                            дети до 24 лет включительно, 50 тысяч рублей на каждого
+                                                            ребенка
+                                                        </span>
+                                                    </label>
+                                                    <div class="label__quest children__quest">
+                                                        <img src="./img/question.svg" class="quest__img"
+                                                            data-target="more3">
+                                                    </div>
+                                                </div>
+                                                <div class="children__coll hidden">
+                                                    <div class="coll__title">
+                                                        Количество детей
+                                                    </div>
+                                                    <div class="coll__num">
+                                                        <div class="coll__min coll__btn">-</div>
+                                                        <div class="col__point">
+                                                            1
+                                                        </div>
+                                                        <div class="coll__max coll__btn">+</div>
+                                                    </div>
+                                                    <div class="children__pay">
+                                                        <div class="item__row">
+                                                            <div class="item__rowTitle">
+                                                                На обучение 1 ребенка
+                                                            </div>
+                                                            <div class="item__valueWrap ndfl__valueWrap">
+                                                                <input type="number" class="item__rowValue">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="more3" class="calk__infoMore categories__more hidden">
+                                                    Налоговое законодательство предоставляет право получить социальный
+                                                    налоговый вычет
+                                                    за обучение брата или сестры в размере не больше, чем 120 тысяч
+                                                    рублей в
+                                                    год
+                                                    (пп.2 п. 1 ст. 219 НК РФ). Вернуть можно до 13% от 120 тысяч рублей,
+                                                    но
+                                                    не более
+                                                    15 600 рублей (без учёта суммы вычета за обучение детей). Сумма в
+                                                    120
+                                                    000 руб.
+                                                    является общей для всех соцвычетов (кроме дорогостоящего лечения и
+                                                    обучения детей).
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="study_total">
+                                        </div>
+
+                                        <div class="heal category">
+                                            <div class="label__wrapper">
+                                                <input id="heal__check" type="checkbox"
+                                                    class="calc__check cat__label cat__check checkbox_hidden">
+                                                <label for="heal__check" class="calc__label">
+                                                    Лечение и покупкa лекарств
+                                                </label>
+                                            </div>
+                                            <div class="heal__inside item__inside hidden" data-categories="heal__check">
+                                                <div class="label__wrapper study__label">
+                                                    <input type="checkbox" id="norm__heal"
+                                                        class="calc__check checkbox_hidden">
+                                                    <label for="norm__heal" class="calc__label children__label">
+                                                        Обычное
+                                                        <span class="calc__sublabel">
+                                                            На себя, детей (до 18 лет), родителей, супруга при наличии
+                                                            справки с кодировкой 1
+                                                        </span>
+                                                    </label>
+                                                    <div class="label__quest children__quest">
+                                                        <img src="./img/question.svg" class="quest__img"
+                                                            data-target="more5">
+                                                    </div>
+                                                </div>
+                                                <div class="children__coll hidden">
+                                                    <div class="item__row normal__heal">
+                                                        <div class="item__rowTitle">
+                                                            Затраты на обычное лечение
+                                                        </div>
+                                                        <div class="item__valueWrap ndfl__valueWrap">
+                                                            <input type="number" class="item__rowValue">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="more5" class="calk__infoMore categories__more hidden">
+                                                    Максимальная сумма налогового вычета за обычное лечение не может
+                                                    превышать 13% от стоимости медицинский услуг, но и не более 15 600
+                                                    рублей на руки в течение одного календарного года. Вами может быть
+                                                    заявлена максимальная сумма возврата вычета в размере: 120 000
+                                                    рублей (к возврату 15 600 рублей) – если траты связаны с оплатой
+                                                    медицинских услуг, а также на приобретение некоторых лекарств,
+                                                    назначенных лечащим врачом
+                                                </div>
+                                                <div class="label__wrapper study__label">
+                                                    <input type="checkbox" id="expensive"
+                                                        class="calc__check checkbox_hidden">
+                                                    <label for="expensive" class="calc__label children__label">
+                                                        Дорогостоящее
+                                                        <span class="calc__sublabel">
+                                                            На себя, детей (до 18 лет), родителей, супруга при наличии
+                                                            справки с кодировкой 2
+                                                        </span>
+                                                    </label>
+                                                    <div class="label__quest children__quest">
+                                                        <img src="./img/question.svg" class="quest__img"
+                                                            data-target="more7">
+                                                    </div>
+                                                </div>
+                                                <div class="children__coll hidden">
+                                                    <div class="item__row expensive_heal">
+                                                        <div class="item__rowTitle">
+                                                            Затраты на дорогостоящее лечение
+                                                        </div>
+                                                        <div class="item__valueWrap ndfl__valueWrap">
+                                                            <input type="number" class="item__rowValue">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="more7" class="calk__infoMore categories__more hidden">
+                                                    По дорогостоящему лечению размер вычета не ограничен, пределом может
+                                                    быть максимальная сумма, с которой можно получить налоговый вычет за
+                                                    лечение, ограничена только размером годового дохода гражданина.
+                                                    Другими словами, сколько налога человек перечислил в бюджет за
+                                                    определенный год, столько же он и вправе вернуть, не больше
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="strah category">
+                                            <div class="label__wrapper">
+                                                <input id="strah__check" type="checkbox"
+                                                    class="calc__check cat__label cat__check checkbox_hidden">
+                                                <label for="strah__check" class="calc__label">
+                                                    Страхование
+                                                </label>
+
+                                                <div class="label__quest">
+                                                    <img src="./img/question.svg" class="quest__img"
+                                                        data-target="more8">
+                                                </div>
+                                            </div>
+                                            <div id="more8" class="categories__more hidden">
+                                                Налоговые вычеты можно получить по суммам, уплаченным за добровольное
+                                                страхование, а также по двум видам пенсионных вычетов: на
+                                                негосударственное
+                                                пенсионное обеспечение и на добровольное пенсионное страхование. При
+                                                этом
+                                                следует помнить, что данные вычеты, предоставляются в размере фактически
+                                                произведенных расходов, но в совокупности не более 120 000 рублей (к
+                                                возврату 15 600 рублей). Если вы используете социальные вычеты по
+                                                нескольким
+                                                видам расходов (расходы на образование, медицинские услуги, добровольное
+                                                страхование), то их общий размер будет ограничен 120 000 руб (к возврату
+                                                всего 15 600 рублей). Исключение относится к расходам на обучение детей,
+                                                в
+                                                данном случае лимит составляет 50000 рублей (к возврату 6500 рублей), и
+                                                расходы на дорогостоящее лечение, в данном случае ограничений и лимита
+                                                не
+                                                установлено
+                                            </div>
+                                            <div class="strah__inside item__inside hidden"
+                                                data-categories="strah__check">
+                                                <div class="label__wrapper study__label">
+                                                    <input type="checkbox" id="strah1__check"
+                                                        class="calc__check strah__open checkbox_hidden">
+                                                    <label for="strah1__check" class="calc__label children__label">
+                                                        Отметьте, если Выгодоприобретатель — Вы, Ваши родители, дети или
+                                                        супруг
+                                                        <span class="calc__sublabel">
+                                                            Получить налоговый вычет можно только в случае, если
+                                                            выгодоприобретатель по договору страхования не является 3-им
+                                                            лицом
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                                <div class="label__wrapper study__label">
+                                                    <input type="checkbox" id="strah2__check"
+                                                        class="calc__check strah__open checkbox_hidden">
+                                                    <label for="strah2__check" class="calc__label">
+                                                        Отметьте, если договор страхования заключён на срок 5 и более
+                                                        лет
+                                                        <span class="calc__sublabel">
+                                                            Для возможности применения права налогового вычета,
+                                                            необходимо
+                                                            выполнение обоих условий.
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                                <div class="children__coll hidden strah__info">
+                                                    <p class="children__titleText">
+                                                        Получить налоговый вычет можно только в случае, если
+                                                        выгодоприобретатель по договору страхования не является 3-им
+                                                        лицом.
+                                                        Им должны быть Вы, Ваши родители, дети или супруг.
+                                                        Также договор должен быть заключён на срок 5 и более лет.
+                                                    </p>
+                                                    <div class="item__row">
+                                                        <div class="item__rowTitle">
+                                                            Потраченная сумма
+                                                        </div>
+                                                        <div class="item__valueWrap ndfl__valueWrap">
+                                                            <input type="number" class="item__rowValue">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="more7" class="calk__infoMore categories__more hidden">
+                                                    По дорогостоящему лечению размер вычета не ограничен, пределом может
+                                                    быть максимальная сумма, с которой можно получить налоговый вычет за
+                                                    лечение, ограничена только размером годового дохода гражданина.
+                                                    Другими
+                                                    словами, сколько налога человек перечислил в бюджет за определенный
+                                                    год,
+                                                    столько же он и вправе вернуть, не больше
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="charity category">
+                                            <div class="label__wrapper">
+                                                <input id="charity__check" type="checkbox"
+                                                    class="calc__check cat__label cat__check checkbox_hidden">
+                                                <label for="charity__check" class="calc__label">
+                                                    Благотворительность
+                                                </label>
+
+                                                <div class="label__quest">
+                                                    <img src="./img/question.svg" class="quest__img"
+                                                        data-target="more9">
+                                                </div>
+                                            </div>
+                                            <div id="more9" class="categories__more hidden">
+                                                Вы можете вернуть до 13% от расходов на благотворительность, но
+                                                максимальная
+                                                сумма расходов, которую Вы можете использовать для вычета ограничена 25%
+                                                суммы Вашего годового дохода. Соответственно, максимальная сумма
+                                                возврата
+                                                составляет 13% х 25% х Вашего годового дохода.
+                                            </div>
+                                            <div class="charity__inside item__inside hidden"
+                                                data-categories="charity__check">
+                                                <div class="label__wrapper study__label">
+                                                    <div class="item__row">
+                                                        <div class="item__rowTitle">
+                                                            Размер вычета 25% от годового дохода
+                                                        </div>
+                                                        <div class="item__valueWrap ndfl__valueWrap">
+                                                            <input type="number" class="item__rowValue">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="invest category">
+                                            <div class="label__wrapper">
+                                                <input id="invest__check" type="checkbox"
+                                                    class="calc__check cat__label cat__check checkbox_hidden">
+                                                <label for="invest__check" class="calc__label">
+                                                    Отметьте, если Вы открывали индивидуальный инвестиционный счет в
+                                                    указанном году
+                                                </label>
+
+                                                <div class="label__quest">
+                                                    <img src="./img/question.svg" class="quest__img"
+                                                        data-target="more10">
+                                                </div>
+                                            </div>
+                                            <div id="more10" class="categories__more hidden">
+                                                Вычет на взносы по ИИС можно получать за каждый календарный год, начиная
+                                                с
+                                                2016 года. Исходя из этого, вам возвратят 13% от суммы взноса на ИИС, но
+                                                при
+                                                этом не больше суммы налога, уплаченного за данный календарный год.
+                                                Максимально возможная сумма возврата за один год — 52 000 руб.
+                                            </div>
+                                            <div class="charity__inside item__inside hidden"
+                                                data-categories="invest__check">
+                                                <div class="charity__selectWrap">
+                                                    <div class="charity__select">
+                                                        Выберите из списка
+                                                    </div>
+                                                    <div class="charity__choise">
+                                                        <div class="choise__item">
+                                                            первый
+                                                        </div>
+                                                        <div class="choise__item">
+                                                            второй
+                                                        </div>
+                                                        <div class="choise__item">
+                                                            третий
+                                                        </div>
+                                                        <div class="choise__item">
+                                                            четвертый
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="label__wrapper choise__label hidden">
+                                                    <div class="item__row">
+                                                        <div class="item__rowTitle">
+                                                            Потраченная сумма
+                                                        </div>
+                                                        <div class="item__valueWrap ndfl__valueWrap">
+                                                            <input type="number" class="item__rowValue">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                            <!--                    конец 2 экрана-->
+
+
+                            <!-- 4 экран калькулятора -->
+
+                        </div>
+                        <!-- конец контейнера -->
+
+
+                        <div id="calcFour" class="none">
+
+                            <div class="calcFour__main">
+
+                                <div class="calcThree__main left_part"
+                                    style="padding-top: 17px; justify-content: flex-start;">
+                                    <div class="main__result">
+                                        <img src="img/round.svg" alt="">
+                                        <div>
+                                            <h2>Ваш расчет:</h2>
+                                        </div>
+                                    </div>
+                                    <div class="footer__calc" style="flex-direction: column;">
+                                        <div class="footer__calc_minus rub" style="margin-left: 0 !important;">
+                                            <span>Удержано НДФЛ: </span><br>
+                                            <div type="number" tabindex="-1" class="footerRub retained rowValue_empty"
+                                                style="padding-top: 0;">146 000</div>
+                                        </div>
+                                        <div class="footer__calc_plus rub" style="margin-left: 0;">
+                                            <span>Можно вернуть в текущем году:</span><br>
+                                            <div class="footerRub retained example__rowValue you_can"
+                                                style="padding-top: 0;">15 400</div>
+
+                                        </div>
+                                        <div class="mobile__btn">
+                                            Рассчитать снова
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="tarif" id="tarif">
+                                    <div class="container container__tarif">
+                                        <h3 class="tarif__title">
+                                            Тарифы
+                                        </h3>
+                                        <span class="subtitle">
+                                            Линейка тарифов "Налоговый помощник Онлайн"
+                                        </span>
+                                        <div class="tarif__wrapper">
+                                            <div class="tarif__item">
+                                                <div class="tarif__image">
+                                                    <img src="./img/light.png" class="tarif__img">
+                                                </div>
+                                                <div class="tarif_margin">
+                                                    <div class="tarif__name">
+                                                        Лайт
+                                                    </div>
+                                                    <div class="tarif__subname">
+                                                        самый доступный из представленных тарифов
+                                                    </div>
+                                                    <p class="tarif__text">
+                                                        Возможность получить налоговый вычет будет не только у Вас, но и
+                                                        у
+                                                        друга, коллеги или члена семьи.
+                                                        Наши специалисты проконсультируют, пришлют полный перечень
+                                                        необходимых документов, заполнят налоговую декларацию и
+                                                        заявление на
+                                                        предоставление вычета.
+                                                    </p>
+                                                    <div class="tarif__btn__price_wrapper">
+                                                        <div class="tarif__cost">
+                                                            <span class="tarif__price">
+                                                                1 400
+                                                            </span>
+                                                            <span class="tarif__time">
+                                                                сроком на 1 год
+                                                            </span>
+                                                        </div>
+                                                        <div class="tarif__btnWrap">
+                                                            <a href="#" class="tarif__btn">
+                                                                Купить
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tarif__item">
+                                                <div class="tarif__image">
+                                                    <img src="./img/coins.png" class="tarif__img">
+                                                </div>
+                                                <div class="tarif_margin">
+                                                    <div class="tarif__name">
+                                                        1+1
+                                                    </div>
+                                                    <div class="tarif__subname">
+                                                        для семьи, коллег и друзей
+                                                    </div>
+                                                    <p class="tarif__text">
+                                                        Возможность получить налоговый вычет будет не только у Вас, но и
+                                                        у
+                                                        друга, коллеги или члена семьи.
+                                                        Наши специалисты проконсультируют, пришлют полный перечень
+                                                        необходимых документов, заполнят налоговую декларацию и
+                                                        заявление на
+                                                        предоставление вычета.
+                                                    </p>
+                                                    <div class="tarif__btn__price_wrapper">
+                                                        <div class="tarif__cost">
+                                                            <span class="tarif__price">
+                                                                2 600
+                                                            </span>
+                                                            <span class="tarif__time">
+                                                                сроком на 1 год
+                                                            </span>
+                                                        </div>
+                                                        <div class="tarif__btnWrap">
+                                                            <a href="#" class="tarif__btn">
+                                                                Купить
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tarif__item">
+                                                <div class="tarif__image">
+                                                    <img src="./img/crown.png" class="tarif__img">
+                                                </div>
+                                                <div class="tarif_margin">
+                                                    <div class="tarif__name">
+                                                        ВИП
+                                                    </div>
+                                                    <div class="tarif__subname">
+                                                        Не тратьте время - <br>
+                                                        Мы все сделаем за Вас!
+                                                    </div>
+                                                    <p class="tarif__text">
+                                                        Возможность получить налоговый вычет будет не только у Вас, но и
+                                                        у
+                                                        друга, коллеги или члена семьи.
+                                                        Наши специалисты проконсультируют, пришлют полный перечень
+                                                        необходимых документов, заполнят налоговую декларацию и
+                                                        заявление на
+                                                        предоставление вычета.
+                                                    </p>
+                                                    <div class="tarif__btn__price_wrapper">
+                                                        <div class="tarif__cost">
+                                                            <span class="tarif__price">
+                                                                3 100
+                                                            </span>
+                                                            <span class="tarif__time">
+                                                                сроком на 1 год
+                                                            </span>
+                                                        </div>
+                                                        <div class="tarif__btnWrap">
+                                                            <a href="#" class="tarif__btn">
+                                                                Купить
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- конец 4 экрана -->
+
+
+                    </div>
+                    <!-- конец контейнера -->
+
+
+                    <div class="green_line">
+
+                    </div>
+
+                    <div id="calc__footer">
+                        <div class="footer__calc">
+                            <div class="footer__calc_minus rub">
+                                <span>Удержано НДФЛ: </span>
+                                <div type="number" tabindex="-1" class="footerRub retained rowValue_empty"
+                                    style="padding-top: 0;">146 000</div>
+                            </div>
+                            <div class="footer__calc_plus rub">
+                                <span>Можно вернуть в текущем году:</span><br>
+                                <div class="footerRub retained example__rowValue you_can" style="padding-top: 0;">15 400
+                                </div>
+                            </div>
+                        </div>
+                        <div id="backButton">
+                            Назад
+                        </div>
+                        <div id="footerButton">
+                            Продолжить
+                        </div>
+                        <div id="vychetButton">
+                            Получить налоговый вычет
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <div>
+                        <img src="./img/footer_logo.svg" alt="">
+                    </div>
+                    <div>
+                        <p>Услуги оказывает ООО «Национальная Юридическая Служба»</p> <br>
+                        <p><a href="./docs/politika.pdf" blank=_target>Политика оператора в отношении обработки
+                                персональных данных ООО «Национальная юридическая служба»</a></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- модальное окно справки -->
+
+    <div class="hints" >
+        <h2 class="hints__spravka">Справка</h2>
+        <img class="hints__close" src="img/hintsclose.svg" alt="">
+        <a class="hints__hint" data-target="more12">
+            <img src="img/hintsarrow.svg" alt="">
+            Если Вы получаете пенсию
+        </a>
+        <div id="more12" class="categories__more">
+            Как известно с пенсии не удерживаются налоги, поэтому важно знать в каком году
+            пенсионер
+            перестал получать доходы, т.к. возврат налога пенсионерам при покупке недвижимости
+            осуществляется за три прошедших года, которые были до появления права на налоговый
+            вычет, но это правило действует только на налоговый вычет по недвижимости, по всем
+            остальным вычетам нужно заявлять в том году в котором были расходы и соответствующий
+            доход в пределах трех лет с момента затрат
+        </div>
+    <br>
+    <a class="hints__hint" data-target="more13">
+        <img src="img/hintsarrow.svg" alt="">
+        Если Вы не работаете
+    </a> <br>
+    <div class="categories__more" id="more13">
+        Неработающие люди на пенсии вправе рассчитывать на возврат НДФЛ при покупке
+        недвижимости (новое строительство либо приобретение на территории Российской
+        Федерации жилых домов, квартир, комнат или доли (долей) в них, приобретение
+        земельных участков или доли (долей) в них, предоставленных для
+        индивидуального
+        жилищного строительства, и земельных участков или доли (долей) в них, на
+        которых
+        расположены приобретаемые жилые дома или доля (доли) в них) за три прошедших
+        периода, которые были до появления права вернуть средства. Таким образом,
+        независимо от даты покупки квартиры, пенсионер может вернуть уплаченный НДФЛ
+        за
+        4 последних календарных года. Но чтобы перенести на предшествующие сроки
+        налоговый вычет на недвижимость, пенсионеру нужно в тех периодах иметь
+        соответствующий доход, в противном случае льгота предоставлена не будет.
+        (пункт
+        10 ст. 2020 НК РФ.) При этом, в соответствии с пунктом 7 статьи 78 НК РФ
+        заявление о зачете или о возврате суммы излишне уплаченного налога может
+        быть
+        подано в течение трех лет со дня уплаты указанной суммы.
+    </div>
+    <a class="hints__hint" data-target="more14">
+        <img src="img/hintsarrow.svg" alt="">
+        Покупка недвижимости
+    </a> <br>
+    <div id="more14" class="categories__more hidden">
+        Жилые дома, квартиры, комнаты или доля /доли в них, приобретение
+        земельные
+        участки
+        или доля/доли в них, предоставленные для индивидуального жилищного
+        строительства,
+        земельные участки или доля/доли в них, на которых расположены
+        приобретаемые
+        жилые
+        дома
+        или доля/доли в них.
+    </div>
+    <a class="hints__hint" data-target="more15">
+        <img src="img/hintsarrow.svg" alt="">
+        Оплата своего обучения (брата или сестры)
+    </a> <br>
+    <div id="more15" class="calk__infoMore categories__more hidden">
+        Максимальная сумма налогового вычета за обучение не может превышать
+        13%
+        от стоимости
+        образовательных услуг, но и не более 15 600 рублей на руки в течение
+        одного календарного
+        года. Вами может быть заявлена максимальная сумма возврата вычета в
+        размере: 50 000 рублей
+        (к возврату 6 500 рублей) – по расходам за обучение каждого ребенка
+        (родного, усыновленного
+        или опекаемого); 120 000 рублей (к возврату 15 600 рублей) – если
+        траты
+        связаны с
+        собственным образованием, либо обучением братьев и сестер. На свое
+        обучение вычет
+        предоставляется учащемуся по любой форме обучения (очной,
+        очно-заочной,
+        заочной)
+        независимо от возраста .Получить вычет в связи с оплатой обучения
+        братьев и сестер
+        (в том числе неполнородных) можно, если только на момент оплаты они
+        не
+        достигли возраста 24 лет и их обучение проходит по очной форме.
+    </div>
+    <a class="hints__hint" data-target="more16">
+        <img src="img/hintsarrow.svg" alt="">
+        Оплата обучения детей
+    </a> <br>
+    <div id="more16" class="calk__infoMore categories__more hidden">
+        Налоговое законодательство предоставляет право получить социальный
+        налоговый вычет
+        за обучение брата или сестры в размере не больше, чем 120 тысяч
+        рублей в
+        год
+        (пп.2 п. 1 ст. 219 НК РФ). Вернуть можно до 13% от 120 тысяч рублей,
+        но
+        не более
+        15 600 рублей (без учёта суммы вычета за обучение детей). Сумма в
+        120
+        000 руб.
+        является общей для всех соцвычетов (кроме дорогостоящего лечения и
+        обучения детей).
+    </div>
+    <a class="hints__hint" data-target="more17">
+        <img src="img/hintsarrow.svg" alt="">
+        Лечение и покупка лекарств (обычное)
+    </a> <br>
+    <div id="more17" class="calk__infoMore categories__more hidden">
+        Максимальная сумма налогового вычета за обычное лечение не может
+        превышать 13% от стоимости медицинский услуг, но и не более 15 600
+        рублей на руки в течение одного календарного года. Вами может быть
+        заявлена максимальная сумма возврата вычета в размере: 120 000
+        рублей (к возврату 15 600 рублей) – если траты связаны с оплатой
+        медицинских услуг, а также на приобретение некоторых лекарств,
+        назначенных лечащим врачом
+    </div>
+    <a class="hints__hint" data-target="more18">
+        <img src="img/hintsarrow.svg" alt="">
+        Лечение и покупка лекарств (дорогостоящее)
+    </a> <br>
+    <div id="more18" class="calk__infoMore categories__more hidden">
+        По дорогостоящему лечению размер вычета не ограничен, пределом может
+        быть максимальная сумма, с которой можно получить налоговый вычет за
+        лечение, ограничена только размером годового дохода гражданина.
+        Другими словами, сколько налога человек перечислил в бюджет за
+        определенный год, столько же он и вправе вернуть, не больше
+    </div>
+    <a class="hints__hint" data-target="more19">
+        <img src="img/hintsarrow.svg" alt="">
+        Страхование
+    </a> <br>
+    <div id="more19" class="categories__more hidden">
+        Налоговые вычеты можно получить по суммам, уплаченным за добровольное
+        страхование, а также по двум видам пенсионных вычетов: на
+        негосударственное
+        пенсионное обеспечение и на добровольное пенсионное страхование. При
+        этом
+        следует помнить, что данные вычеты, предоставляются в размере фактически
+        произведенных расходов, но в совокупности не более 120 000 рублей (к
+        возврату 15 600 рублей). Если вы используете социальные вычеты по
+        нескольким
+        видам расходов (расходы на образование, медицинские услуги, добровольное
+        страхование), то их общий размер будет ограничен 120 000 руб (к возврату
+        всего 15 600 рублей). Исключение относится к расходам на обучение детей,
+        в
+        данном случае лимит составляет 50000 рублей (к возврату 6500 рублей), и
+        расходы на дорогостоящее лечение, в данном случае ограничений и лимита
+        не
+        установлено
+    </div>
+    <a class="hints__hint" data-target="more20">
+        <img src="img/hintsarrow.svg" alt="">
+        Благотворительность
+    </a> <br>
+    <div id="more20" class="categories__more hidden">
+        Вы можете вернуть до 13% от расходов на благотворительность, но
+        максимальная
+        сумма расходов, которую Вы можете использовать для вычета ограничена 25%
+        суммы Вашего годового дохода. Соответственно, максимальная сумма
+        возврата
+        составляет 13% х 25% х Вашего годового дохода.
+    </div>
+    <a class="hints__hint" data-target="more21">
+        <img src="img/hintsarrow.svg" alt="">
+        Индивидуальный инвестиционный счет
+    </a> <br>
+    <div id="more21" class="categories__more hidden">
+        Вычет на взносы по ИИС можно получать за каждый календарный год, начиная
+        с
+        2016 года. Исходя из этого, вам возвратят 13% от суммы взноса на ИИС, но
+        при
+        этом не больше суммы налога, уплаченного за данный календарный год.
+        Максимально возможная сумма возврата за один год — 52 000 руб.
+    </div>
+    </div>
+
+    <!-- конец модального окна справки  -->
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+@media (min-width: 320px) and (max-width: 720px) {
+
+    /* тут все стили, которые будут работать в это ширине. Это считай мобилка */
+
+
+    body {
+        overflow-x: hidden !important;
+    }
+
+.chooseYear {
+    flex-direction: column;
+}
+
+.income_header {
+    flex-direction: column;
+}
+
+.income_input {
+    flex-direction: column;
+}
+
+#calc__footer {
+    flex-direction: column;
+}
+
+.header {
+    padding-left: 20px;
+    flex-direction: column-reverse;
+}
+
+.help {
+    display: none;
+}
+
+
+.for_pensioner .label {
+    max-width: 223px;
+    margin-left: 21px;
+}
+
+.checkbox-custom {
+    margin-right: -14px;
+}
+
+#footerButton::after {
+    right: 91px;
+}
+
+.footerRub::after{
+    right: -16px;
+    top: 5px;
+    width: 15px;
+}
+
+
+.help__mobile {
+   
+    margin: 29px 0px 62px 211px;
+    font-family: 'Rubik', sans-serif;
+    color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    
+
+}
+
+
+
+.help__mobile a {
+    display: inline-block;
+   
+}
+
+.main h1 {
+    font-size: 32px;
+}
+
+.white {
+    font-size: 14px;
+}
+
+.yearMenu__item {
+    font-size: 14px;
+    color: #2b2b2b;
+    padding: 12px 18px;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    background-image: url(../img/logo.svg);
+    background-repeat: no-repeat;
+    background-position: cover;
+    left: 17px;
+    top: 33px;
+    width: 92px;
+    height: 65.5px;
+}
+
+
+.footer_span {
+    font-size: 11px;
+    
+}
+
+.main {
+    padding-top: 0px;
+}
+
+
+h1 {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 0.75;
+}
+
+.chooseYear {
+    margin-top: 26px;
+    margin-bottom: 32px;
+}
+
+.label_info {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.step__selector{
+    display: block;
+    margin-bottom: 24px;
+    background-image: url(../img/select_arrow.svg);
+    background-repeat: no-repeat;
+    background-size: 17px;
+    font-weight: 500;
+    background-color: #ffffff;
+    width: 275px;
+    padding: 9px 13px;
+    background-position: 243px 17px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: solid 1px #e5e5e5;
+    background-color: #ffffff;
+}
+
+
+.rub_input::after {
+    width: 0px;
+    height: 0px;
+}
+
+.coll__num {
+    width: 27%;
+}
+
+.children__coll {
+    padding-left: 0px;
+}
+
+.category {
+    padding: 1px 17px 19px  13px;
+    font-size: 14px;
+}
+
+#backButton {
+    margin-left: 0px;
+    padding: 34px 62px 36px 167px;
+}
+
+#footerButton {
+    padding: 36px 172px 37px 147px;
+}
+
+.item__inside  {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+.calc__container {
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+.calcMenu {
+    display: none;
+}
+
+.income_header h2 {
+    font-size: 14px;
+    font-weight: bold;  
+}
+
+.label,.yearLabel {
+    font-size: 14px;
+}
+
+.income_input label {
+    font-size: 14px;
+    margin-top: 24px;
+}
+
+.income_sum {
+  padding: 9px 26px;
+}
+
+.rub_input::after{
+    right: 264px;
+    top: 60px;
+}
+
+.income_text_mobile {
+    font-size: 14px;
+    display: block;
+}
+
+.income_text {
+    display: none;
+}
+
+.footer__calc_minus, .footer__calc_plus {
+    margin-left: 0;
+    margin-right: 31px;
+    
+}
+#footerButton {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+#calculator {
+padding-top: 24px; 
+width: 100%;
+}
+
+.income {
+    padding-bottom: 42px;
+}
+
+.item__rowTitle {
+    width: 118px;
+}
+
+.footer__calc span {
+    margin-top: 22px;
+    margin-bottom: 16px;
+}
+
+.main__result img {
+    display: none;
+}
+
+.calcThree__main {
+    align-items: flex-start;
+    padding-bottom: 50px;
+    margin: 16px;
+    margin-bottom: 50px;
+    padding: 32px 50px 50px 16px;
+    background: #f7f7f7;
+    border-radius: 16px;
+}
+
+.calcFour__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left_part {
+    padding-right: 40px;
+    max-width: 100%;
+    border-right: none;
+}
+
+.calcThree__main {
+    padding-bottom: 50px;
+}
+
+.psevdo__arrow::after {
+    content: "";
+    position: absolute;
+    background-image: url(../img/arrowvychet.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 0;
+    height: 0;
+    top: -17px;
+}
+
+.container__tarif {
+    max-width: 659px;
+    margin: 0 0px;
+}
+.tarif__title, .subtitle {
+    display: inline-block;
+    margin-left: 16px;
+}
+
+.tarif__title {
+    font-size: 24px;
+}
+
+.subtitle {
+    font-size: 16px;
+}
+
+.tarif__wrapper {
+    margin-top: 32px;
+}
+
+.tarif__item {
+     display: block;
+}
+
+.tarif__btnWrap {
+    max-width: 139px;
+    width: 100%;
+    margin-left: 16px;
+}
+
+.label_mob {
+    margin-left: 21px;
+}
+
+.charity__select {
+    margin-top: 15px;
+}
+
+.rub_input input:hover{
+    border: 1px solid #5eab42;
+}
+
+.tarif__name {
+    font-weight: bolder;
+    font-size: 20px;
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.tarif__subname {
+    text-align: center;
+}
+
+.tarif__item {
+    padding: 16px;
+    border-radius: 0;
+    display: block;
+    border: 2px solid #f7f7f7;
+    margin-bottom: 0px;
+}
+.tarif__btn__price_wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tarif_margin {
+    margin-left: 0px;
+}
+.container {
+    max-width: 361px;
+    margin: 0 auto;
+}
+
+
+.main__result h2 {
+    font-size: 24px;
+}
+
+.mobile__btn {
+    display: block;
+}
+
+}

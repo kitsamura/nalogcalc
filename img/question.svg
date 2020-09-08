@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <style>
+            .cls-1{fill:#5eab42;font-size:15px;font-family:Rubik,sans-serif;}.cls-2,.cls-4{fill:none}.cls-2{stroke:#5eab42}.cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="Group_1" data-name="Group 1" transform="translate(-638 -1168)">
+        <text id="_" class="cls-1" transform="translate(644 1184)">
+            <tspan x="0" y="0">?</tspan>
+        </text>
+        <g id="Ellipse_1" class="cls-2" data-name="Ellipse 1" transform="translate(638 1168)">
+            <circle cx="10" cy="10" r="10" class="cls-3"/>
+            <circle cx="10" cy="10" r="9.5" class="cls-4"/>
+        </g>
+    </g>
+</svg>
